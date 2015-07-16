@@ -1,0 +1,1333 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="xeno.css" />
+    <script src="js/vendor/modernizr.js"></script>
+
+<script type="text/javascript" src="js/vendor/jquery.js"></script>
+<script type="text/javascript" src="xeno.js"></script>
+
+  </head>
+
+<body style="font-size: 12px;" id="xeno">
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">ゼノブレイドクロス インナーダメージ計算</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="active"><a href="#"></a></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#">Left Nav Button</a></li>
+    </ul>
+  </section>
+</nav>
+
+
+<div id="main">
+<div class="row">
+<div class="large-8 small-12 columns">
+<button type="button" class="xenob" onClick="clearForm(0);false;">装備設定リセット</button>
+<button type="button" class="xenob" onClick="clearForm(1);false;">ダメージ設定リセット</button>
+</div>
+<div class="large-4 small-12 columns">
+<p>謝辞/使用方法など　攻略スレダメージ検証氏さまの計算式とデータ(20150706)を使わせて頂きました。膨大な検証データありきです。深く感謝いたします。そのほか後日記載予定 up0717</p>
+</div>
+</div>
+<div class="row">
+
+<div class="large-6 small-12 columns">
+<form>
+
+<table border="1">
+  <tr>
+    <th scope="col">クラス</th>
+    <th scope="col">格闘</th>
+    <th scope="col">射撃</th>
+    <th scope="col">潜在</th>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+  <tr id="classSt">
+    <td><select>
+     <option value="ドリフター">ドリフター</option>
+      <option value="ジェネラルソード">ジェネラルソード</option>
+      <option value="ヘヴィーストライカー">ヘヴィーストライカー</option>
+      <option value="フルメタルジャガー">フルメタルジャガー</option>
+      <option value="スタークルセイダー">スタークルセイダー</option>
+      <option value="エリートプランナー">エリートプランナー</option>
+      <option value="ギャラクシーナイト">ギャラクシーナイト</option>
+    </select></td>
+    <td>79</td>
+    <td>53</td>
+    <td>64</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<table border="1" id="bougu">
+  <tr>
+    <th height="40" scope="col">防具</th>
+    <th bgcolor="#FCDBDC" scope="col">格闘アップ</th>
+    <th bgcolor="#FCDBDC" scope="col">格闘ブースト</th>
+    <th bgcolor="#D3D9FF" scope="col">射撃アップ</th>
+    <th bgcolor="#D3D9FF" scope="col">射撃ブースト</th>
+    <th bgcolor="#FBFFDA" scope="col">潜在アップ</th>
+    <th bgcolor="#FBFFDA" scope="col">潜在ブースト</th>
+    <th scope="col">デバイス</th>
+  </tr>
+  <tr>
+    <th scope="row">頭</th>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><select>
+      <option value="sd-0">-</option>
+      <option value="sd-1">潜在アップXX</option>
+      <option value="sd-2">潜在ブーストXX</option>
+    </select></td>
+  </tr>
+  <tr>
+    <th scope="row">胴</th>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><select>
+      <option value="sd-0">-</option>
+      <option value="sd-1">潜在アップXX</option>
+      <option value="sd-2">潜在ブーストXX</option>
+    </select></td>
+  </tr>
+  <tr>
+    <th scope="row">左腕</th>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><select>
+      <option value="sd-0">-</option>
+      <option value="sd-1">潜在アップXX</option>
+      <option value="sd-2">潜在ブーストXX</option>
+    </select></td>
+  </tr>
+  <tr>
+    <th scope="row">右腕</th>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><select>
+      <option value="sd-0">-</option>
+      <option value="sd-1">潜在アップXX</option>
+      <option value="sd-2">潜在ブーストXX</option>
+    </select></td>
+  </tr>
+  <tr>
+    <th scope="row">脚</th>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><select>
+      <option value="sd-0">-</option>
+      <option value="sd-1">潜在アップXX</option>
+      <option value="sd-2">潜在ブーストXX</option>
+    </select></td>
+  </tr>
+</table>
+<table border="1" >
+  <tr>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">格闘</th>
+    <th scope="col">射撃</th>
+    <th scope="col">潜在</th>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+  <tr id="bouguSt">
+    <th bgcolor="#FFa500">防具アフィ・デバイス適用</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr id="bouguBs">
+    <th>（ブースト率）</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<table border="1" id="buki">
+  <tr>
+    <th height="40" scope="col">武器</th>
+    <th bgcolor="#00CCCC" scope="col">攻撃力</th>
+    <th bgcolor="#FCDBDC" scope="col">格闘ア</th>
+    <th bgcolor="#FCDBDC" scope="col">格闘ブ</th>
+    <th bgcolor="#D3D9FF" scope="col">射撃ア</th>
+    <th bgcolor="#D3D9FF" scope="col">射撃ブ</th>
+    <th bgcolor="#FBFFDA" scope="col">潜在ア</th>
+    <th bgcolor="#FBFFDA" scope="col">潜在ブ</th>
+    <th scope="col">攻撃ア</th>
+    <th scope="col">属性強化</th>
+    <th scope="col">パツクラ</th>
+  </tr>
+  <tr>
+    <th scope="row">格闘武器</th>
+    <td bgcolor="#00CCCC"><input name="textfield" type="text" id="textfield" size="4" maxlength="4" value="0"></td>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FCDBDC"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#dddddd" disabled><option value="0">-</option></td>
+    <td bgcolor="#dddddd" disabled><option value="0">-</option></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><input type="checkbox" id="partsc1" value="1">
+    <label for="checkbox">あり</label></td>
+  </tr>
+  <tr>
+    <th scope="row">射撃武器</th>
+    <td bgcolor="#00CCCC"><input name="textfield2" type="text" id="textfield2" size="4" maxlength="4" value="0"></td>
+    <td bgcolor="#dddddd" disabled><option value="0">-</option></td>
+    <td bgcolor="#dddddd" disabled><option value="0">-</option></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td bgcolor="#FBFFDA"><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><select>
+      <option value="0">-</option>
+      <option value="1">V</option>
+      <option value="2">X</option>
+      <option value="3">XI</option>
+      <option value="4">XII</option>
+      <option value="5">XIII</option>
+      <option value="6">XIV</option>
+      <option value="7">XV</option>
+      <option value="8">XVI</option>
+      <option value="9">XVII</option>
+      <option value="10">XVIII</option>
+      <option value="11">XIX</option>
+      <option value="12">XX</option>
+    </select></td>
+    <td><input type="checkbox" id="partsc2" value="1">
+  <label for="checkbox2">あり</label></td>
+  </tr>
+</table>
+<table border="1">
+  <tr>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">格闘</th>
+    <th scope="col">射撃</th>
+    <th scope="col">潜在</th>
+    <th scope="col">攻撃（格闘武器）</th>
+    <th scope="col">攻撃（射撃武器）</th>
+   <th scope="col">属性強化</th>
+    <th scope="col">パーツクラッシャー</th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+  <tr id="bukiSt">
+    <th bgcolor="#FFa500">武器アフィ適用</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr id="bukiBs">
+    <th>（ブースト率）</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table border="1" id="device">
+  <tr>
+    <th height="40" scope="col">デバイス（個数）</th>
+    <th bgcolor="#FCDBDC" scope="col">格闘アップXX</th>
+    <th bgcolor="#FCDBDC" scope="col">格闘ブーストXX</th>
+    <th bgcolor="#D3D9FF" scope="col">射撃アップXX</th>
+    <th bgcolor="#D3D9FF" scope="col">射撃ブーストXX</th>
+    <th scope="col">攻撃アップXX</th>
+    <th scope="col">属性強化XX</th>
+    <th scope="col">パーツクラッシャー</th>
+  </tr>
+  <tr>
+    <th scope="row">格闘武器</th>
+    <td bgcolor="#FCDBDC"><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+	　<option value="3">3</option>
+      
+    </select></td>
+    <td bgcolor="#FCDBDC"><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+	　
+      <option value="3">3</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+      <option value="3">3</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+      <option value="3">3</option>
+    </select></td>
+    <td><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+	　
+      <option value="3">3</option>
+    </select></td>
+    <td><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+	　
+      <option value="3">3</option>
+    </select></td>
+    <td><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+	　
+      <option value="3">3</option>
+    </select></td>
+  </tr>
+  <tr>
+    <th scope="row">射撃武器</th>
+    <td bgcolor="#FCDBDC"><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+	　
+      <option value="3">3</option>
+    </select></td>
+    <td bgcolor="#FCDBDC"><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+
+      
+      <option value="3">3</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+
+	　
+      
+      <option value="3">3</option>
+    </select></td>
+    <td bgcolor="#D3D9FF"><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+	　
+      
+      <option value="3">3</option>
+    </select></td>
+    <td><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+
+      <option value="3">3</option>
+    </select></td>
+    <td><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+
+      
+      <option value="3">3</option>
+    </select></td>
+    <td><select >
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+     
+      <option value="3">3</option>
+    </select></td>
+  </tr>
+</table>
+<table  border="1">
+  <tr>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">格闘</th>
+    <th scope="col">射撃</th>
+    <th scope="col">潜在</th>
+    <th scope="col">攻撃(格闘武器)</th>
+     <th scope="col">攻撃(射撃武器)</th>
+   <th scope="col">属性強化</th>
+    <th scope="col">パーツクラッシャー</th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+  <tr id="deviceSt" >
+    <th bgcolor="#FFa500">武器デバイス適用</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr id="deviceBs">
+    <th>（ブースト率）</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</form>
+</div>
+
+<div class="large-6 small-12 columns">
+<form>
+<table  border="1" id="skill">
+  <tr>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">格闘</th>
+    <th scope="col">射撃</th>
+    <th scope="col">潜在</th>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">○○力手動入力</th>
+
+  </tr>
+  <tr>
+    <th>常時発動スキル</th>
+    <td bgcolor="#00CCCC"><input type="text" size="3" maxlength="3" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="3" maxlength="3" value="0">%加算</td>
+    <td bgcolor="#00CCCC"><input type="text"  size="3" maxlength="3" value="0">%加算</td>
+	<td>&nbsp;</td>
+    <td><input type="checkbox" id="manuchk" value="1">
+  <label for="manuchk">入力値使用</label></td>
+  </tr>
+  <tr id="skillSt" bgcolor="#FFa500">
+    <th bgcolor="#FFa500">最終表示ステータス</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td><input type="text"  size="4" maxlength="4" id="manuvalue" value=""></td>
+  </tr>
+  <tr id="skillBs">
+    <th>（ブースト率）</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+
+
+<table  border="1" id="arts">
+  <tr>
+    <th bgcolor="#eeeeee" scope="col">&nbsp;</th>
+    <th bgcolor="#eeeeee" scope="col">種別</th>
+    <th bgcolor="#eeeeee" scope="col">アーツ倍率</th>
+    <th bgcolor="#eeeeee" scope="col">特攻倍率</th>
+    <th bgcolor="#eeeeee" scope="col">&nbsp;</th>
+    <th bgcolor="#eeeeee" scope="col">攻撃力</th>
+    <th bgcolor="#eeeeee" scope="col">攻撃力アップ</th>
+     <th bgcolor="#eeeeee" scope="col">実質攻撃力</th>
+   <th bgcolor="#eeeeee" scope="col">安定性</th>
+
+  </tr>
+  <tr id="result1">
+    <th bgcolor="#FFa500">アーツ</th>
+    <td><select id="artsType">
+     <option value="arts-1">格闘アーツ</option>
+      <option value="arts-2">射撃アーツ</option>
+      <option value="arts-3">TPアーツ(格闘)</option>
+      <option value="arts-4">TPアーツ(射撃)</option>
+    </select></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="100">%</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%</td>
+
+    <th bgcolor="#FFa500">武器</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+     <td>&nbsp;</td>
+   <td bgcolor="#00CCCC"><input type="text" size="3" maxlength="3" value="0">%増減</td>
+
+  </tr>
+  <tr bgcolor="#FFa500">
+    <th bgcolor="#eeeeee">&nbsp;</th>
+    <th bgcolor="#eeeeee">表示ステータス</th>
+    <th bgcolor="#eeeeee">オーラ効果</th>
+    <th bgcolor="#eeeeee">支援効果</th>
+    <th bgcolor="#eeeeee">他 合算可</th>    
+    <th bgcolor="#eeeeee">実質ステータス</th>
+    <th bgcolor="#eeeeee">アーツ倍率適用</th>
+    <th bgcolor="#F87AAD">基準ダメージ</th>
+  </tr>
+  <tr id="result2" bgcolor="#FFa500" >
+    <th bgcolor="#FFa500" id="powerSt">○○力</th>
+    <td bgcolor="#FFFFFF">&nbsp;</td>
+    <td bgcolor="#00CCCC"><input type="text" size="3" maxlength="3" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="3" maxlength="3" value="0">%加算</td>
+    <td bgcolor="#00CCCC"><input type="text" size="3" maxlength="3" value="0">%加算</td>
+    <td bgcolor="#FFFFFF">&nbsp;</td>
+      <td bgcolor="#FFFFFF">&nbsp;</td>
+      <td bgcolor="#F87AAD">&nbsp;</td>
+  </tr>
+</table>
+
+<table  border="1" id="crit">
+  <tr>
+    <th bgcolor="#eeeeee" scope="col">&nbsp;</th>
+    <th bgcolor="#eeeeee" scope="col">（基礎値）</th>
+    <th bgcolor="#eeeeee" scope="col">会心倍率</th>
+    <th bgcolor="#eeeeee" scope="col">OCG倍率</th>
+    <th bgcolor="#eeeeee" scope="col">アーツ特攻</th> 
+   <th bgcolor="#eeeeee" scope="col">キラー倍率</th>
+    <th bgcolor="#eeeeee" scope="col">属性強化</th>
+    <th bgcolor="#eeeeee" scope="col">ポジション</th>
+     <th bgcolor="#eeeeee" scope="col">転倒</th>
+
+  </tr>
+  <tr>
+    <th bgcolor="#FFa500">会心枠</th>
+    <td>100</td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td><input type="checkbox" id="artspchk" value="0">  <label for="artspchk">適用</label></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td id="critElX">&nbsp;</td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+  </tr>
+  <tr>
+    <th bgcolor="#FFa500">&nbsp;</th>
+    <th bgcolor="#eeeeee" scope="col">その他1</th>
+    <th bgcolor="#eeeeee" scope="col">その他2</th>
+    <th bgcolor="#eeeeee" scope="col">その他3</th>
+    <th bgcolor="#eeeeee" scope="col">その他4</th> 
+   <th bgcolor="#eeeeee" scope="col">その他5</th>
+    <th bgcolor="#eeeeee" scope="col">その他6</th>
+    <th bgcolor="#eeeeee" scope="col">その他7</th>
+     <th bgcolor="#F87AAD" scope="col">合計</th>
+
+  </tr>
+  <tr>
+    <th bgcolor="#FFa500">会心枠</th>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+    <td bgcolor="#F87AAD" id="critX">&nbsp;</td>
+  </tr>
+
+</table>
+
+<table  border="1" id="parts">
+  <tr>
+    <th bgcolor="#eeeeee" scope="col">&nbsp;</th>
+    <th bgcolor="#eeeeee" scope="col">部位硬度ランク</th>
+    <th bgcolor="#eeeeee" scope="col">パツクラ個数</th>
+    <th bgcolor="#F87AAD" scope="col">適用倍率</th>
+    <th >&nbsp;</th>
+    <th bgcolor="#eeeeee" scope="col">&nbsp;</th>
+   <th bgcolor="#eeeeee" scope="col">敵属性耐性値</th>
+    <th bgcolor="#eeeeee" scope="col">耐性ダウン</th>
+    <th bgcolor="#F87AAD" scope="col">適用倍率</th>
+  </tr>
+  <tr id="result4">
+    <th bgcolor="#FFa500">部位硬度枠</th>
+    <td><select>
+	<option value="5">5 (10%)</option>
+	<option value="4">4 (25%)</option>
+	<option value="3">3 (50%)</option>
+	<option value="2">2 (75%)</option>
+	<option value="1">1 (85%)</option>
+	<option value="0" selected>0 (100%)</option>
+	<option value="-1">-1 (115%)</option>
+	<option value="-2">-2 (125%)</option>
+	<option value="-3">-3 (150%)</option>
+	<option value="-4">-4 (200%)</option>
+	<option value="-5">-5 (250%)</option>
+    </select></td>
+	<td id="partsNum">&nbsp;</td>
+	<td bgcolor="#F87AAD" id="partsX">&nbsp;</td>
+	<th bgcolor="#FFa500">属性耐性枠</th>
+	<td>100 - </td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%減算</input></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%加算</input></td>
+	<td bgcolor="#F87AAD" id="elemX">&nbsp;</td>
+  </tr>
+</table>
+
+<table  border="1" id="indiv">
+  <tr>
+    <th bgcolor="#eeeeee" scope="col">&nbsp;</th>
+    <th bgcolor="#eeeeee" scope="col">インサイドブレイカー</th>
+    <th bgcolor="#eeeeee" scope="col">アグレッシブモード</th>
+    <th bgcolor="#eeeeee" scope="col">プロテクションモード</th>
+    <th bgcolor="#eeeeee" scope="col">バトルフェンサー</th>
+    <th bgcolor="#eeeeee" scope="col">その他</th>
+  </tr>
+
+  <tr>
+    <th bgcolor="#FFa500">独立枠</th>
+    <td><select>
+     <option value="100">未使用</option>
+      <option value="250">レベル4(100+150%)</option>
+    </select></td>
+    <td><select>
+     <option value="100">未使用</option>
+      <option value="250">ランクV(100+150%)</option>
+       <option value="300">ランクVI(100+200%)</option>
+   </select></td>
+    <td><select>
+     <option value="100">未使用</option>
+      <option value="40">ランクV(100-60%)</option>
+       <option value="50">ランクVI(100-50%)</option>
+   </select></td>
+    <td><select>
+     <option value="100">未使用</option>
+      <option value="130">レベル4(100+30%)</option>
+    </select></td>
+    <td bgcolor="#00CCCC"><input type="text" size="4" maxlength="4" value="0">%+100%</input></td>
+
+  </tr>
+</table>
+
+
+<table border="1" id="damage">
+  <tr>
+    <th scope="col">基準ダメージ</th>
+    <th scope="col">キャスト倍率枠</th>
+    <th scope="col">会心枠</th>
+    <th scope="col">部位硬度枠</th>
+    <th scope="col">属性耐性枠</th>
+    <th scope="col">独立枠</th>
+   <td>&nbsp;</td>
+    <th bgcolor="#F87AAD" scope="col" >算出ダメージ</th>
+  </tr>
+  <tr id="result3">
+    <td>&nbsp;</td>
+    <td><select>
+      <option value="100">通常 100%</option>
+      <option value="250">ダブルリキャスト 250%</option>
+      <option value="400">トリプルリキャスト 400%</option>
+    </select></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  <td bgcolor="#F87AAD">&nbsp;</td>
+    </tr>
+</table>
+<table border="1" id="damage2">
+  <tr>
+    <th scope="col"></th>
+    <th scope="col">算出ダメージ<br />(102.5% & 安定性プラマイ0）</th>
+    <th scope="col">最小ダメージ<br />(100% & 安定性下限)</th>
+    <th scope="col">最大ダメージ<br />(105% & 安定性上限)</th>
+  </tr>
+  <tr id="result5">
+    <th>ダメージぶれ幅</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+</table>
+<button type="button" class="xenob"  onClick="baseCalc(1);">最大ダメージ<br />デバイスシミュレータ</button>
+<table border="1" id="maxddevice">
+  <tr>
+    <th scope="col">使用デバイス数</th>
+    <th bgcolor="#FCDBDC" scope="col">格闘アップXX</th>
+    <th bgcolor="#FCDBDC" scope="col">格闘ブーストXX</th>
+    <th bgcolor="#D3D9FF" scope="col">射撃アップXX</th>
+    <th bgcolor="#D3D9FF" scope="col">射撃ブーストXX</th>
+    <th scope="col">攻撃アップXX</th>
+    <th scope="col">属性強化XX</th>
+    <th scope="col">パーツクラッシャー</th>
+  </tr>
+  <tr id="simnum">
+    <td><select id="devmax">
+      <option value="6">6個</option>
+      <option value="5">5個</option>
+      <option value="4">4個</option>
+      <option value="3">3個</option>
+      <option value="2">2個</option>
+      <option value="1">1個</option>
+    </select></td>
+　　 <td bgcolor="#FCDBDC">&nbsp;</td>
+    <td bgcolor="#FCDBDC">&nbsp;</td>
+    <td bgcolor="#D3D9FF">&nbsp;</td>
+    <td bgcolor="#D3D9FF">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#F87AAD">ダメージ</td>
+　　<td bgcolor="#F87AAD" colspan="3" id="simdamage">&nbsp;</td>
+  </tr>
+
+</form>
+</div>
+</div>
+
+</div>
+</body>
+</html>
