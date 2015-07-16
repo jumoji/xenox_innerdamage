@@ -326,7 +326,7 @@ function damageCalc(obj,simchk){
 	damage.baseDmax = parseInt( tempPow * tempArts /100 )+ parseInt(tempAtk * (100 + data[1][8])/100);
 
 	if (simchk != 1){	
-	$("th#powerSt").text = tempType;
+	$("th#powerSt")[0].text = tempType;
 	$("tr#result1")[0].cells[5].childNodes[0].data = damage.weaponAtk;
 	$("tr#result1")[0].cells[6].childNodes[0].data = damage.weaponBoost;
 	$("tr#result1")[0].cells[7].childNodes[0].data = tempAtk;
