@@ -7749,47 +7749,48 @@ body#xeno #main button.xenob {
 /* line 31, ../scss/xeno.scss */
 body#xeno p {
   font-size: 12px;
+  margin: 5px 2px;
 }
-/* line 36, ../scss/xeno.scss */
+/* line 37, ../scss/xeno.scss */
 body#xeno .columns {
   float: left;
   max-width: 800px;
   margin-left: 0;
 }
-/* line 43, ../scss/xeno.scss */
+/* line 44, ../scss/xeno.scss */
 body#xeno button.xenob {
   width: 200px;
   padding: 10px;
   margin: 5px 2px;
 }
-/* line 54, ../scss/xeno.scss */
+/* line 55, ../scss/xeno.scss */
 body#xeno table {
   margin: 10px 5px;
 }
-/* line 60, ../scss/xeno.scss */
+/* line 61, ../scss/xeno.scss */
 body#xeno th {
   min-width: 50px;
   font-size: 12px;
 }
-/* line 65, ../scss/xeno.scss */
+/* line 66, ../scss/xeno.scss */
 body#xeno td, body#xeno th {
   font-size: 12px;
   text-align: center;
   padding: 2px 2px;
   max-height: 18px;
 }
-/* line 71, ../scss/xeno.scss */
+/* line 72, ../scss/xeno.scss */
 body#xeno td select, body#xeno td input, body#xeno th select, body#xeno th input {
   vertical-align: middle;
 }
-/* line 74, ../scss/xeno.scss */
+/* line 75, ../scss/xeno.scss */
 body#xeno td select, body#xeno td input, body#xeno td label, body#xeno th select, body#xeno th input, body#xeno th label {
   font-size: 12px;
   height: 18px;
   margin: 0;
   padding: 1px 4px 1px 2px;
 }
-/* line 80, ../scss/xeno.scss */
+/* line 81, ../scss/xeno.scss */
 body#xeno td select, body#xeno th select {
   padding-right: 15px;
 }
