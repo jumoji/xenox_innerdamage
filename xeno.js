@@ -36,10 +36,64 @@ $(function($) {
 	   $("input:text").each(function() {
 	    if ( isNaN( this.value ) || this.value == "")  this.value = 0;
 	   });
-	
+
+	if ( this.name == "bougutokka"	){
+		bouguTokka(this.value);
+	} 
 	    baseCalc();
 	});
 });
+
+
+function bouguTokka(value){
+
+var writeData = [
+	[
+		[0,0,0,0,0,0,0],
+		[0,0,0,0,0,0,0],
+		[0,0,0,0,0,0,0],
+		[0,0,0,0,0,0,0],
+		[0,0,0,0,0,0,0]
+	],
+	[
+		[0,0,0,0,0,0,0],
+		[9,0,0,0,0,0,0],
+		[20,0,0,0,0,0,0],
+		[20,0,0,0,0,0,0],
+		[0,9,0,0,0,0,0]
+	],
+	[
+		[0,0,0,0,0,0,0],
+		[0,0,9,0,0,0,0],
+		[0,0,20,0,0,0,0],
+		[0,0,20,0,0,0,0],
+		[0,0,0,9,0,0,0]
+	],
+	[
+		[0,0,0,0,20,18,1],
+		[0,0,0,0,9,0,1],
+		[0,0,0,0,9,0,1],
+		[0,0,0,0,9,0,1],
+		[0,0,0,0,0,9,2]
+	]
+];
+
+	var tr = $("table#bougu"+" tr");
+	for( var i=1,l=tr.length;i<l;i++ ){
+	    var cells = tr.eq(i).children();
+	    for( var j=1,m=cells.length;j<m;j++ ){
+		var k = i-1;			
+		var l = j-1;
+		var data = writeData[value][k][l];
+
+		if ( l == 6 ) data = "sd-"+ data; 
+
+	        cells[j].childNodes[0].value = data;
+	    }
+	}
+}
+
+
 
 function clearForm(i){
 	$("form")[i].reset();

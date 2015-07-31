@@ -52,7 +52,7 @@
 </div>
 <div class="large-4 small-12 columns">
 <p>謝辞/使用方法など　攻略スレダメージ検証氏さまの計算式とデータ(20150706)を使わせて頂きました。膨大な検証データありきで深く感謝します。そのほか後日記載予定 up0717
-<br />0731 部位硬度枠に本体追加。100%でパーツクラッシュの影響を受けません。デバイスシミュに反映されます</p>
+<br />0731 部位硬度枠に本体追加。100%でパーツクラッシュの影響を受けません。デバイスシミュに反映されます。防具○○力特化装備の補助入力追加</p>
 </div>
 </div>
 <div class="row">
@@ -66,10 +66,8 @@
     <th scope="col">格闘</th>
     <th scope="col">射撃</th>
     <th scope="col">潜在</th>
-    <th scope="col">&nbsp;</th>
-    <th scope="col">&nbsp;</th>
-    <th scope="col">&nbsp;</th>
-    <th scope="col">&nbsp;</th>
+    <th scope="col"></th>
+    <th scope="col" colspan="3">防具入力補助</th>
   </tr>
   <tr id="classSt">
     <td><select>
@@ -101,9 +99,14 @@
     <td>53</td>
     <td>64</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td colspan="3">
+	<input type="radio" name="bougutokka" id="t_kakutou"value="1">
+	<label for="t_kakutou">格闘特化</label>
+	<input type="radio" name="bougutokka" id="t_shageki" value="2">
+	<label for="t_shageki">射撃特化</label>
+	<input type="radio" name="bougutokka" id="t_senzai" value="3">
+	<label for="t_senzai">潜在特化</label>
+</td>
   </tr>
 </table>
 
