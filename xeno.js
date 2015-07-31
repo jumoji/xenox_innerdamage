@@ -375,9 +375,14 @@ function damageCalc(obj,simchk){
 
 	if (partsRank < -5) partsRank = -5;
 
-	var PARTS = [250,200,150,125,115,100,85,75,50,25,10];
+	var PARTS = [250,200,150,125,115,100,85,75,50,25,10,100];
 	var partsX = PARTS[partsRank+5];
-	
+
+	//本体処理追加 0731
+	if ( data[1][1] == 6 ) { 
+		partsX = 100;
+		partsRank = "本体";
+	}
 	var partsText = partsRank + "(" + partsX + "%)";
 	var elemX = 100 - data[1][6] + data[1][7];
 
@@ -459,6 +464,9 @@ function simDevice(simchk){
 		"elUp"   :6,
 		"paCr"   :6,
 	}
+
+	//本体処理追加 0731
+	if ( $("select#isparts").val() == 6 ) deviceMax.paCr = 0;
 
 	switch(artsType){
 	case "arts-1":
